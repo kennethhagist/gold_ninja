@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ninja Gold</title>
+    </head>
+    <body>
+        <h4>Your gold: </h4>
+        {% if 'booty' in session %}
+        <h4 id="booty"> {{session['booty'] }} </h4>
+        {% else %}
+        <h4 id="booty"> 0 </h4>
+        {% endif %}
+        <br>
+
+        <section>
+            <article class="farm">
+                <h4>Farm</h4>
+                <p class='blocktext'>(earns 10-20 golds)</p>
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="farm" />
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </article>
+            <article class="farm">
+                <h4>Cave</h4>
+                <p class='blocktext'>(earns 5-10 golds)</p>
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="cave" />
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </article>
+            <article class="farm">
+                <h4>House</h4>
+                <p class='blocktext'>(earns 2-5 golds)</p>
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="house" />
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </article>
+            <article class="farm">
+                <h4>Casino</h4>
+                <p class='blocktext'>(earns/takes 0-50 golds)</p>
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="casino" />
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </article>
+        </section>
+        <section>
+            <br>
+            <p>Activities:</p>
+            <div height: "200px" width: "600px"  margin-left: "100px" >
+                    <textarea name="textarea">{{session['activity'] }}</textarea>
+            </div>
+            <p name='treasure_chest'>Clear Treasure Chest</p>
+                <form action="/" method="post">
+                    <input type="submit" value="Reset"/>
+                </form>
+        </section>
+    </body>
+</html>
